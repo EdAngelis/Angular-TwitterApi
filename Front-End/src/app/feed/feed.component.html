@@ -1,0 +1,14 @@
+<div class="ui segment">
+ <!-- *ngIf="!tweets" para quando não têm menssagem-->
+  <div class="ui yellow message" *ngIf="!tweets">
+    <i class="star icon"></i>
+    Não Existem Twittes
+  </div>
+    <!-- Listagem de Tweets-->
+    <app-tweet *ngFor="let currTweet of tweets" [tweet]="currTweet" (likedTweetChild)="handleLikedTweetFromChildCOmponent($event)"></app-tweet>
+  
+</div>
+
+
+
+
