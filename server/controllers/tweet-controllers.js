@@ -15,7 +15,25 @@ tweetCtrl.postTweet = async (req, res, next)=> {
     }).catch(e=>{
         res.status(400).send({message: "Ocorreu algum erro", data:e});
     });
-
 }
+
+tweetCtrl.putTweet = async (req, res, next)=> {
+    const tweet = { 
+        user : req.body.user,
+        name : req.body.name,
+        body : req.body.body,
+        likes: req.body.likes,
+        avatar : req.body.avatar
+    }
+    await tweetModel.findOneAndUpdate({user:req.params.user}, {$set:tweet},{new:true})
+    res.json({status: 'Empregado Atualizado'})
+}
+
+tweetCtrl.deleteTweet = async (req, res, next)=>{
+    await tweetModel.findOneAndDelete({user:req.params.user})
+    res.json({status: 'Empregado Atualizado'})
+}
+
+
 
 module.exports = tweetCtrl;

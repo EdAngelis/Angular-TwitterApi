@@ -5,8 +5,33 @@
     Não Existem Twittes
   </div>
     <!-- Listagem de Tweets-->
-    <app-tweet *ngFor="let currTweet of tweets" [tweet]="currTweet" (likedTweetChild)="handleLikedTweetFromChildCOmponent($event)"></app-tweet>
-  
+    <div *ngFor="let CurrentTweet of FeedService.Tweets">
+      <div class="ui items">
+        <!-- Tweets-->  
+          <div class="item">
+            <a class="ui tiny image">
+              <img src="{{CurrentTweet.avatar}}">
+            </a>
+            <div class="content">
+              <a class="header">{{CurrentTweet.name}}</a>
+              <div class="description">
+                <p>{{CurrentTweet.body}}</p>
+                <!-- Botão Like-->
+              <div class="ui labeled button" tabindex="0">
+                <div class="ui button" (click)="likeTweet(tweet)">
+                  <i class="heart icon"></i> Like
+                </div>
+                <a class="ui basic label" >
+                  {{CurrentTweet.likes.length}}
+                </a>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+    </div>
+   
 </div>
 
 

@@ -1,23 +1,24 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FeedService } from '../../service/feed.service';
+import { Tweet } from '../models/tweet';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-tweet',
   templateUrl: './tweet.component.html',
-  styleUrls: ['./tweet.component.css']
+  styleUrls: ['./tweet.component.css'],
+  providers: [FeedService]
+
 })
 export class TweetComponent implements OnInit {
 
-  @Input() tweet; 
-  @Output() likedTweetChild = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private FeedService: FeedService) {
+  
+   }
 
   ngOnInit() {
 
   }
 
-  likeTweet(tweet){
-    this.likedTweetChild.emit(tweet);
-    
-  }
 }

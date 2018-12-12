@@ -7,6 +7,9 @@ import { MenuComponent } from './menu/menu.component';
 import { FeedComponent } from './feed/feed.component';
 import { TweetComponent } from './tweet/tweet.component';
 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,9 @@ import { TweetComponent } from './tweet/tweet.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

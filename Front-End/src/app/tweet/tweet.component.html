@@ -3,19 +3,19 @@
 <!-- Tweets-->  
   <div class="item">
     <a class="ui tiny image">
-      <img src="{{tweet.avatar}}">
+      <img src="{{CurrentTweets.avatar}}">
     </a>
     <div class="content">
-      <a class="header">{{tweet.name}}</a>
+      <a class="header">{{CurrentTweets.name}}</a>
       <div class="description">
-        <p>{{tweet.body}}</p>
+        <p>{{CurrentTweets.body}}</p>
         <!-- Botão Like-->
       <div class="ui labeled button" tabindex="0">
         <div class="ui button" (click)="likeTweet(tweet)">
           <i class="heart icon"></i> Like
         </div>
         <a class="ui basic label" >
-          {{tweet.likes.length}}
+          {{CurrentTweets.likes.length}}
         </a>
       </div>
       </div>
